@@ -1,6 +1,6 @@
-# pihpe
+# PiHPe
 
-## What
+### What
 A bit of PHP to help me create simple websites. It allows me to:
 
 - isolate content in separate files
@@ -9,8 +9,8 @@ A bit of PHP to help me create simple websites. It allows me to:
 - use HTML/CSS/JS, with a bit of PHP
 - have proper syntax highlighting
 
-## How
+### How
 For now, most of this info is in the repository files. I will add it here soon...
 
-## First
+### First
 But first, I'd like to check if my static builds even work on GitHub.
