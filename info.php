@@ -3,6 +3,8 @@
       Use this to define a content section for your website. This includes all
       <style>, HTML, and <script> needed to render it, as well as any links for
       external CSS and JavaScript.
+
+      Note that blocks (<? ob_start()...ob_get_clean(); ?>) are optional.
    */
 
    $root = $_SERVER['DOCUMENT_ROOT'];
@@ -14,7 +16,7 @@
    */
 
    links([
-      'example.js'
+      'example'
    ]);
 ?>
 <? ob_start(); ?> 
@@ -56,7 +58,7 @@
          <ul>
             <li>isolate content in separate files <span>A</span></li>
             <li>have relative paths and links sorted <span>B</span></li>
-            <li>publish static versions (i.e. GitHub), too <span>C</span></li>
+            <li>create static versions (i.e. GitHub), too <span>C</span></li>
             <li>use HTML/CSS/JS, with a bit of PHP</li>
             <li>have proper syntax highlighting</li>
          </ul>
@@ -68,9 +70,9 @@
    <h2>How</h2>
 
    <section>
-      <h3>message.php <span>A</span></h3>
+      <h3>info.php <span>A</span></h3>
       <p>
-         Carefully spreading content over different files, makes it much nicer to work on...
+         I carefully spread my content over different files, making it much nicer to work on. Here's one section of content:
       </p>
 
       <pre>
@@ -79,14 +81,14 @@
 &lt;? $body = ob_get_clean(); ?&gt;</pre>
 
       <small>
-         Each file contains all HTML, CSS, and JavaScript for one piece of content. External stylesheets and -scripts are also declared here. And when content is combined on a page, those externals are loaded only once by PiHPe.
+         Each file contains all HTML, CSS, and JavaScript for one content section. External stylesheets and -scripts are also declared here. Including links is managed by PiHPe.
       </small>
    </section>
 
    <section>
       <h3>header.php</h3>
       <p>
-         ...and easy to reuse content on multiple pages:
+         And here's another, easily reused on many pages!
       </p>
 
       <pre>
@@ -103,19 +105,19 @@
    <section>
       <h3>/_pihpe/paths.php <span>B</span></h3>
       <p>
-         I give everything a unique name:
+         I use this file to map resources and paths to unique names:
       </p>
       <pre>
 $paths = [
-   <mark>'message' =&gt; '/message.php',
-   'header'  =&gt; '/header.php'</mark>,
+   <mark>'info'    =&gt; '/info.php',
+   'header'  =&gt; '/_php/header.php'</mark>,
    'layout'  =&gt; '/_php/layout.php',
-   'favicon' =&gt; '/favicon.png'
+   'favicon' =&gt; '/_images/favicon.png'
 ];</pre>
       </p>
       
       <small>
-         Remember DRY, and simply include URL's with a but of PHP:
+         This is just an example. 'How to choose a good resource name' could be a perfect identifier for a section of content. To include it, use:
       </small>
 
       <pre>
@@ -126,11 +128,11 @@ $paths = [
    <section>
       <h3>index.php</h3>
       <p>
-         Decide what to add to a page, and which layout to use:
+         Here I decide what to add to a page, and which layout to use:
          <pre>
 parse([
    <mark>'header',
-   'message'</mark>
+   'info'</mark>
 ]);
 
 include($root . <mark>url('layout')</mark>);
@@ -141,24 +143,30 @@ include($root . <mark>url('layout')</mark>);
    <section>
       <h3>layout.php</h3>
       <p>
-         <pre>
+         Which I need to define first, obviously:
+      </p>
+
+      <pre>
+   &lt;style&gt;
+      <mark>h1 { color: LightGreen; }</mark>
+   &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 <mark>&lt;main&gt;</mark>
    &lt;? insert($body); ?&gt;
-<mark>&lt;/main&gt;</mark>
-         </pre>
-      </p>
+<mark>&lt;/main&gt;</mark></pre>
    </section>
 
    <section>
       <h3>/_pihpe/build.php <span>C</span></h3>
       <p>
-         Define what to include in a build. Browse to <a href="/[pihpe]/build.php">/[pihpe]/build</a> to create a static version:
-         <pre>
+         To create a static version, I browse to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a>. In this file I also specify what to include in a build:
+      </p>
+
+      <pre>
 build([
    <mark>'/index.php'</mark>
-]);
-         </pre>
-      </p>
+]);</pre>
    </section>
 
    <hr>
@@ -169,15 +177,10 @@ build([
       <p>
          <ul>
             <li>Test a build on GitHub.</li>
+            <li>Finish this page. Add a Why section.</li>
             <li>Write a proper README.md.</li>
             <li>Add simple template facility.</li>
          </ul>
       </p>
    </section>
 <? $body = ob_get_clean(); ?>
-<? ob_start(); ?> 
-   <!-- Info ----------------------------------------------------------------->
-
-   <script>
-   </script>
-<? $script = ob_get_clean(); ?>

@@ -12,6 +12,8 @@
       Add your own boilerplate markup here.
    -->
 
+   <base href="<?= url('url'); ?>">
+
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -29,6 +31,7 @@
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      
       body { background-color: #444; }
       h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
@@ -89,6 +92,6 @@
    <!-- Content scripts ------------------------------------------------------>
 
    <? insert($js); ?>
-   <? insert($script); ?>
+   <? insert($script); ?> 
 </body>
 </html>

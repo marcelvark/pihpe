@@ -4,26 +4,12 @@
       PiHPe
 
       A bit of PHP to help build dynamic or static websites.
-
-      I couldn't decide whether to go dynamic, or publish a blogfolio on 
-      GitHub. And I already had a little PHP to use layout templates for pages.
-      Then I realized I could use the PHP development server to generate HTML.
-
-      So there it was. Kind of a static website builder, with an option to go
-      dynamic anytime. I edit my content in convenient separate files, and move
-      it around between pages. I manage paths to everything in a single place.
-      And PHP's output buffering makes it easy for my text editor to do proper 
-      syntax highlighting.
-
-      May you enjoy PiHPe as well :-)
-
-      Marcel Varkevisser
    */
 
 
    /* -------------------------------------------------------------------------
       Returns a URL for a resource (URN).
-      (define these in /[pihpe]/paths.php, and use it anywhere)
+      (define these in /[pihpe]/paths.php, and use them anywhere)
    */
 
    require_once($_SERVER['DOCUMENT_ROOT'] . '/[pihpe]/paths.php');

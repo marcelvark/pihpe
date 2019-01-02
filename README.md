@@ -5,7 +5,7 @@ A bit of PHP to help me create simple websites. It allows me to:
 
 - isolate content in separate files
 - have relative paths and links sorted
-- publish static versions (i.e. GitHub), too
+- create static versions (i.e. GitHub), too
 - use HTML/CSS/JS, with a bit of PHP
 - have proper syntax highlighting
 

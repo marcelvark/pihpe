@@ -3,6 +3,8 @@
       Use this to define a content section for your website. This includes all
       <style>, HTML, and <script> needed to render it, as well as any links for
       external CSS and JavaScript.
+
+      Note that blocks (<? ob_start()...ob_get_clean(); ?>) are optional.
    */
 
    $root = $_SERVER['DOCUMENT_ROOT'];

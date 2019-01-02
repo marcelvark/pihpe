@@ -1,3 +1,4 @@
+@echo off
 
 rem   This is just to make my life easier. It starts PHP and opens the browser.
 rem   -------------------------------------------------------------------------

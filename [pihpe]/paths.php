@@ -10,6 +10,12 @@
       'favicon'    => '/_images/favicon.png',
       'apple-icon' => '/_images/apple-touch-icon.png',
       'monospace'  => '/_fonts/sourcecodepro-regular-webfont.woff2',
-      'example.js' => '/_js/dummy.js',
+      'example'    => '/_js/dummy.js',
+
+      /* ----------------------------------------------------------------------
+         PiHPe uses root-relative URLs, but absolute URLs can also be used.
+         (see the <base> tag in /[pihpe]/_layout.php)
+      */
+      'base' => '',
    ];
 ?>
