@@ -36,18 +36,20 @@
       h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
       a { color: LightSkyBlue; }
+      kbd { color: White; }
       hr { background-image: linear-gradient(to right, #fff3, transparent); height: 0.2rem; border: none; width: 100%; }
 
+      *:focus { outline: 0.12rem dashed LightSkyBlue; outline-offset: 0.1rem; }
       ::-moz-selection { background: Khaki; color: White; }
       ::selection { background: Khaki; color: White; }
 
       html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
-      h1, h2, h3, a { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
+      h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
       h1, h2, h3 { font-weight: normal; }
       h1 { font-size: 3rem; }
       h2 { font-size: 2rem; }
       h3 { font-size: 1rem; }
-      p a { font-size: 89%; }
+      p a, p kbd { font-size: 89%; }
       p, li { line-height: 160%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
       pre, code { font-size: 0.6rem; font-family: Mono, monospace; }
       /*pre, code { font-size: 0.6rem; letter-spacing: 0.025em; font-family: Courier New, monospace; }*/

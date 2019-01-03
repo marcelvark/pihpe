@@ -6,6 +6,8 @@
       Add your own boilerplate markup here.
    -->
 
+   <base href="">
+
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -23,22 +25,25 @@
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      
       body { background-color: #444; }
       h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
       a { color: LightSkyBlue; }
+      kbd { color: White; }
       hr { background-image: linear-gradient(to right, #fff3, transparent); height: 0.2rem; border: none; width: 100%; }
 
+      *:focus { outline: 0.12rem dashed LightSkyBlue; outline-offset: 0.1rem; }
       ::-moz-selection { background: Khaki; color: White; }
       ::selection { background: Khaki; color: White; }
 
       html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
-      h1, h2, h3, a { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
+      h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
       h1, h2, h3 { font-weight: normal; }
       h1 { font-size: 3rem; }
       h2 { font-size: 2rem; }
       h3 { font-size: 1rem; }
-      p a { font-size: 89%; }
+      p a, p kbd { font-size: 89%; }
       p, li { line-height: 160%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
       pre, code { font-size: 0.6rem; font-family: Mono, monospace; }
       /*pre, code { font-size: 0.6rem; letter-spacing: 0.025em; font-family: Courier New, monospace; }*/
@@ -67,15 +72,16 @@
    <style>
       header { min-height: 100vh; }
       h1 { line-height: 100vh; text-align: middle; font-size: 6rem; margin: 0; }
+      h1 a { padding: 0; color: inherit; }
+      h1 a:hover { border: none; }
       footer { color: Gray; font-size: 0.8rem; letter-spacing: 0.025em; font-family: Arial, sans-serif; }
       footer { padding-top: 0.5rem; position: absolute; top: 0; }
-      /*footer a { color: Gray; }*/
    </style>
  
    <!-- Info ----------------------------------------------------------------->
 
    <style>
-      h3 { font-size: 1rem; color: White; }
+      h3 { color: White; letter-spacing: 0.05em; }
 
       /*ul { list-style: none; }
       li::before { margin: 0 0.5em 0 0; padding: 0; content: '■'; }*/
@@ -94,6 +100,7 @@
          padding: 0.1em 0.35em; border-radius: 1em; background-color: Silver; color: Black; 
          font-size: 0.7rem; font-weight: bold; font-family: Courier New, monospace; 
          vertical-align: top;
+         /*display: none;*/
       }
 
       pre mark { color: LightGreen; background-color: transparent; }
@@ -108,7 +115,7 @@
    <!-- Page header ---------------------------------------------------------->
 
    <header>
-      <h1>PiHPe</h1>
+      <h1><a href="https://github.com/marcelvark/pihpe">PiHPe</a></h1>
       <footer>Marcel Varkevisser | <a href="https://nl.linkedin.com/in/marcel-varkevisser">LinkedIn</a> | <a href="https://marcelvark.github.io">GitHub</a></footer>
    </header>
  
@@ -118,11 +125,11 @@
 
    <section>
       <p>
-         A bit of PHP to help me create simple websites. It allows me to:
+         A bit of PHP to help me create simple websites. In particular to:
          <ul>
             <li>isolate content in separate files <span>A</span></li>
             <li>have relative paths and links sorted <span>B</span></li>
-            <li>publish static versions (i.e. GitHub), too <span>C</span></li>
+            <li>create static versions (i.e. GitHub), too <span>C</span></li>
             <li>use HTML/CSS/JS, with a bit of PHP</li>
             <li>have proper syntax highlighting</li>
          </ul>
@@ -134,9 +141,9 @@
    <h2>How</h2>
 
    <section>
-      <h3>message.php <span>A</span></h3>
+      <h3>info.php <span>A</span></h3>
       <p>
-         Carefully spreading content over different files, makes it much nicer to work on...
+         I like to spread my content over different files, making it much nicer to work on. Here's an example of a section:
       </p>
 
       <pre>
@@ -145,14 +152,14 @@
 &lt;? $body = ob_get_clean(); ?&gt;</pre>
 
       <small>
-         Each file contains all HTML, CSS, and JavaScript for one piece of content. External stylesheets and -scripts are also declared here. And when content is combined on a page, those externals are loaded only once by PiHPe.
+         Each file contains all HTML, CSS, and JavaScript for one section. External stylesheet and -script links are also declared here. Including them is managed by PiHPe.
       </small>
    </section>
 
    <section>
       <h3>header.php</h3>
       <p>
-         ...and easy to reuse content on multiple pages:
+         And here's another one, easy to reuse on multiple pages!
       </p>
 
       <pre>
@@ -167,64 +174,73 @@
    </section>
 
    <section>
-      <h3>/_pihpe/paths.php <span>B</span></h3>
+      <h3>/[pihpe]/paths.php <span>B</span></h3>
       <p>
-         I give everything a unique name:
+         In <kbd>paths.php</kbd>, I map resources and paths to unique names:
       </p>
       <pre>
 $paths = [
-   <mark>'message' =&gt; '/message.php',
-   'header'  =&gt; '/header.php'</mark>,
+   <mark>'info'    =&gt; '/info.php',
+   'header'  =&gt; '/_php/header.php'</mark>,
    'layout'  =&gt; '/_php/layout.php',
-   'favicon' =&gt; '/favicon.png'
+   'favicon' =&gt; '/_images/favicon.png'
 ];</pre>
       </p>
       
       <small>
-         Remember DRY, and simply include URL's with a but of PHP:
+         'How to choose a good resource name' could be a perfect name for a section. These paths can now be included anywhere using:
       </small>
 
       <pre>
-&lt;link rel=&quot;icon&quot; href=&quot;<mark>&lt;?= url('favicon'); ?&gt;</mark>&quot;&gt;
-      </pre>
+&lt;link rel=&quot;icon&quot; href=&quot;<mark>&lt;?= url('favicon'); ?&gt;</mark>&quot;&gt;</pre>
    </section>
 
    <section>
       <h3>index.php</h3>
       <p>
-         Decide what to add to a page, and which layout to use:
-         <pre>
+         Creating pages is a matter of choosing which sections to use in what order, and which layout to use for rendering:
+      </p>
+      
+      <pre>
 parse([
    <mark>'header',
-   'message'</mark>
+   'info'</mark>
 ]);
 
-include($root . <mark>url('layout')</mark>);
-         </pre>
-      </p>
+include($root . <mark>url('layout')</mark>);</pre>
    </section>
 
    <section>
       <h3>layout.php</h3>
       <p>
-         <pre>
+         Design flexibility was one reason for creating PiHPe. I like to create layouts, and piece together my pages.
+      </p>
+
+      <pre>
+   &lt;style&gt;
+      <mark>h1 { color: LightGreen; }</mark>
+   &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 <mark>&lt;main&gt;</mark>
    &lt;? insert($body); ?&gt;
-<mark>&lt;/main&gt;</mark>
-         </pre>
-      </p>
+<mark>&lt;/main&gt;</mark></pre>
    </section>
 
    <section>
-      <h3>/_pihpe/build.php <span>C</span></h3>
+      <h3>/[pihpe]/build.php <span>C</span></h3>
       <p>
-         Define what to include in a build. Browse to <a href="/[pihpe]/build.php">/[pihpe]/build</a> to create a static version:
-         <pre>
+         For GitHub I added a minimalist static build facility. A visit to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a> will save HTML for the files specified:
+      </p>
+
+      <pre>
 build([
    <mark>'/index.php'</mark>
-]);
-         </pre>
-      </p>
+]);</pre>
+
+      <small>
+         <i>A pattern based copy to isolate static files is already on my todo list.</i>
+      </small>
    </section>
 
    <hr>
@@ -234,9 +250,12 @@ build([
    <section>
       <p>
          <ul>
-            <li>Proper README.md.</li>
-            <li>Simple template facility.</li>
-            <li>Why-section.</li>
+            <li>Test a build on GitHub.</li>
+            <li>Improve the build mechanism.</li>
+            <li>Create a simple template facility.</li>
+            <li>Finish this page. Add a Why section.</li>
+            <li>Write a proper README.md.</li>
+            <li>Add file-relative linking.</li>
          </ul>
       </p>
    </section>
@@ -252,15 +271,7 @@ build([
 
    <!-- Content scripts ------------------------------------------------------>
 
-       
-   <!-- Page header ---------------------------------------------------------->
-
-   <script>
-   </script>
- 
-   <!-- Info ----------------------------------------------------------------->
-
-   <script>
-   </script>
+   <script src="/_js/dummy.js"></script>
+    
 </body>
 </html>

@@ -23,7 +23,7 @@
    <!-- Info ----------------------------------------------------------------->
 
    <style>
-      h3 { font-size: 1rem; color: White; }
+      h3 { color: White; letter-spacing: 0.05em; }
 
       /*ul { list-style: none; }
       li::before { margin: 0 0.5em 0 0; padding: 0; content: '■'; }*/
@@ -42,6 +42,7 @@
          padding: 0.1em 0.35em; border-radius: 1em; background-color: Silver; color: Black; 
          font-size: 0.7rem; font-weight: bold; font-family: Courier New, monospace; 
          vertical-align: top;
+         /*display: none;*/
       }
 
       pre mark { color: LightGreen; background-color: transparent; }
@@ -54,7 +55,7 @@
 
    <section>
       <p>
-         A bit of PHP to help me create simple websites. It allows me to:
+         A bit of PHP to help me create simple websites. In particular to:
          <ul>
             <li>isolate content in separate files <span>A</span></li>
             <li>have relative paths and links sorted <span>B</span></li>
@@ -72,7 +73,7 @@
    <section>
       <h3>info.php <span>A</span></h3>
       <p>
-         I carefully spread my content over different files, making it much nicer to work on. Here's one section of content:
+         I like to spread my content over different files, making it much nicer to work on. Here's an example of a section:
       </p>
 
       <pre>
@@ -81,14 +82,14 @@
 &lt;? $body = ob_get_clean(); ?&gt;</pre>
 
       <small>
-         Each file contains all HTML, CSS, and JavaScript for one content section. External stylesheets and -scripts are also declared here. Including links is managed by PiHPe.
+         Each file contains all HTML, CSS, and JavaScript for one section. External stylesheet and -script links are also declared here. Including them is managed by PiHPe.
       </small>
    </section>
 
    <section>
       <h3>header.php</h3>
       <p>
-         And here's another, easily reused on many pages!
+         And here's another one, easy to reuse on multiple pages!
       </p>
 
       <pre>
@@ -103,9 +104,9 @@
    </section>
 
    <section>
-      <h3>/_pihpe/paths.php <span>B</span></h3>
+      <h3>/[pihpe]/paths.php <span>B</span></h3>
       <p>
-         I use this file to map resources and paths to unique names:
+         In <kbd>paths.php</kbd>, I map resources and paths to unique names:
       </p>
       <pre>
 $paths = [
@@ -117,33 +118,32 @@ $paths = [
       </p>
       
       <small>
-         This is just an example. 'How to choose a good resource name' could be a perfect identifier for a section of content. To include it, use:
+         'How to choose a good resource name' could be a perfect name for a section. These paths can now be included anywhere using:
       </small>
 
       <pre>
-&lt;link rel=&quot;icon&quot; href=&quot;<mark>&lt;?= url('favicon'); ?&gt;</mark>&quot;&gt;
-      </pre>
+&lt;link rel=&quot;icon&quot; href=&quot;<mark>&lt;?= url('favicon'); ?&gt;</mark>&quot;&gt;</pre>
    </section>
 
    <section>
       <h3>index.php</h3>
       <p>
-         Here I decide what to add to a page, and which layout to use:
-         <pre>
+         Creating pages is a matter of choosing which sections to use in what order, and which layout to use for rendering:
+      </p>
+      
+      <pre>
 parse([
    <mark>'header',
    'info'</mark>
 ]);
 
-include($root . <mark>url('layout')</mark>);
-         </pre>
-      </p>
+include($root . <mark>url('layout')</mark>);</pre>
    </section>
 
    <section>
       <h3>layout.php</h3>
       <p>
-         Which I need to define first, obviously:
+         Design flexibility was one reason for creating PiHPe. I like to create layouts, and piece together my pages.
       </p>
 
       <pre>
@@ -158,15 +158,19 @@ include($root . <mark>url('layout')</mark>);
    </section>
 
    <section>
-      <h3>/_pihpe/build.php <span>C</span></h3>
+      <h3>/[pihpe]/build.php <span>C</span></h3>
       <p>
-         To create a static version, I browse to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a>. In this file I also specify what to include in a build:
+         For GitHub I added a minimalist static build facility. A visit to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a> will save HTML for the files specified:
       </p>
 
       <pre>
 build([
    <mark>'/index.php'</mark>
 ]);</pre>
+
+      <small>
+         <i>A pattern based copy to isolate static files is already on my todo list.</i>
+      </small>
    </section>
 
    <hr>
@@ -177,9 +181,11 @@ build([
       <p>
          <ul>
             <li>Test a build on GitHub.</li>
+            <li>Improve the build mechanism.</li>
+            <li>Create a simple template facility.</li>
             <li>Finish this page. Add a Why section.</li>
             <li>Write a proper README.md.</li>
-            <li>Add simple template facility.</li>
+            <li>Add file-relative linking.</li>
          </ul>
       </p>
    </section>
