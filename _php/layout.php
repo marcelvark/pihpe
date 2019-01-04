@@ -12,7 +12,7 @@
       Add your own boilerplate markup here.
    -->
 
-   <base href="<?= url('url'); ?>">
+   <base href="<?= url('base'); ?>">
 
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,8 +40,8 @@
       hr { background-image: linear-gradient(to right, #fff3, transparent); }
 
       *:focus { outline: 0.12rem dashed SkyBlue; outline-offset: 0.1rem; }
-      ::-moz-selection { background: Khaki; color: White; }
-      ::selection { background: Khaki; color: White; }
+      ::-moz-selection { background: Khaki; color: Black; }
+      ::selection { background: Khaki; color: Black; }
 
       html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
       h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }

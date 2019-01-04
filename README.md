@@ -32,7 +32,7 @@ And here's another one, easy to reuse on multiple pages!
     <? $body = ob_get_clean(); ?>
 
 ### /[pihpe]/paths.php
-In paths.php, I map resources and paths to unique names:
+In **paths.php**, I map resources and paths to unique names:
 
     $paths = [
         'info'    => '/info.php',
@@ -69,7 +69,7 @@ Design flexibility was one reason for creating PiHPe. I like to create layouts, 
     </main>
 
 ### /[pihpe]/build.php
-For GitHub I also needed a added static build facility. A visit to /[pihpe]/build.php will save HTML for those files specified:
+For GitHub I also needed a added static build facility. A visit to **/[pihpe]/build.php** will save HTML for those files specified:
 
     build([
         '/index.php'
