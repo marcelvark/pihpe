@@ -1,4 +1,6 @@
 # PiHPe
+[Easier read](https://marcelvark.github.io/)
+[index.html](index.html)
 
 ## What
 A bit of PHP to help me create simple websites. It allows me to:
