@@ -181,11 +181,8 @@ build([
    <section>
       <p>
          <ul>
-            <li>Test a build on GitHub.</li>
             <li>Improve the build mechanism.</li>
             <li>Create a simple template facility.</li>
-            <li>Finish this page. Add a Why section.</li>
-            <li>Write a proper README.md.</li>
             <li>Add file-relative linking.</li>
          </ul>
       </p>
