@@ -111,9 +111,9 @@
       <pre>
 $paths = [
    <mark>'info'    =&gt; '/info.php',
-   'header'  =&gt; '/_php/header.php'</mark>,
+   'header'  =&gt; '/_php/header.php',
    'layout'  =&gt; '/_php/layout.php',
-   'favicon' =&gt; '/_images/favicon.png'
+   'favicon' =&gt; '/_images/favicon.png'</mark>
 ];</pre>
       </p>
       
@@ -128,7 +128,7 @@ $paths = [
    <section>
       <h3>index.php</h3>
       <p>
-         Creating pages is a matter of choosing which sections to use in what order, and which layout to use for rendering:
+         Creating pages is a matter of choosing which sections to use in what order, and the layout to use for rendering:
       </p>
       
       <pre>
@@ -150,6 +150,7 @@ include($root . <mark>url('layout')</mark>);</pre>
    &lt;style&gt;
       <mark>h1 { color: LightGreen; }</mark>
    &lt;/style&gt;
+   &lt;? insert($style); ?&gt;
 &lt;/head&gt;
 &lt;body&gt;
 <mark>&lt;main&gt;</mark>
@@ -160,7 +161,7 @@ include($root . <mark>url('layout')</mark>);</pre>
    <section>
       <h3>/[pihpe]/build.php <span>C</span></h3>
       <p>
-         For GitHub I added a minimalist static build facility. A visit to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a> will save HTML for the files specified:
+         For GitHub I also needed a added static build facility. A visit to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a> will save HTML for those files specified:
       </p>
 
       <pre>
@@ -169,7 +170,7 @@ build([
 ]);</pre>
 
       <small>
-         <i>A pattern based copy to isolate static files is already on my todo list.</i>
+         <i>A pattern-based copy to isolate static files is already on my todo list ;-)</i>
       </small>
    </section>
 

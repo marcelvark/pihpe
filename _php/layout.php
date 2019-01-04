@@ -35,11 +35,11 @@
       body { background-color: #444; }
       h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
-      a { color: LightSkyBlue; }
+      a { color: SkyBlue; }
       kbd { color: White; }
-      hr { background-image: linear-gradient(to right, #fff3, transparent); height: 0.2rem; border: none; width: 100%; }
+      hr { background-image: linear-gradient(to right, #fff3, transparent); }
 
-      *:focus { outline: 0.12rem dashed LightSkyBlue; outline-offset: 0.1rem; }
+      *:focus { outline: 0.12rem dashed SkyBlue; outline-offset: 0.1rem; }
       ::-moz-selection { background: Khaki; color: White; }
       ::selection { background: Khaki; color: White; }
 
@@ -58,7 +58,7 @@
 
       h1, h2 { width: 100%; }
       a { padding: 0.2em 0; text-decoration: none; }
-      a:hover { border-bottom: 0.1em solid LightSkyBlue; }
+      a:hover { border-bottom: 0.1em solid SkyBlue; }
       ul, ol { padding-left: 1em; }
       ul { list-style-type: square; }
       pre { overflow: hidden; white-space: pre-wrap; }
@@ -67,7 +67,7 @@
       main { padding: 0 3vw 1vw; display: flex; flex-wrap: wrap; }
       main > section { margin: 0 1vw 6vw 0; width: 29rem; }
       h1, h2, h3, p, ul, ol, pre { margin: 0.5rem 0; }
-      hr { margin: 0 0 6vw; }
+      hr { margin: 0 0 6vw; height: 0.2rem; border: none; width: 100%; }
    </style>
 
    <!-- Content CSS ---------------------------------------------------------->
