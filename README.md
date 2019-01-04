@@ -1,6 +1,5 @@
 # PiHPe
-[Easier read](https://marcelvark.github.io/)
-[index.html](index.html)
+Here's an [example](https://marcelvark.github.io/) made with PiHPe. It is a styled version of the information below. All files used in the build are in the repository.
 
 ## What
 A bit of PHP to help me create simple websites. It allows me to:
@@ -80,9 +79,6 @@ For GitHub I also needed a added static build facility. A visit to **/[pihpe]/bu
 *A pattern-based copy to isolate static files is already on my todo list ;-)*
 
 ## Next
-- Test a build on GitHub.
 - Improve the build mechanism.
 - Create a simple template facility.
-- Finish this page. Add a Why section.
-- Write a proper README.md.
 - Add file-relative linking.
