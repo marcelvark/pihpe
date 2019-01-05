@@ -23,10 +23,13 @@
    <!-- Info ----------------------------------------------------------------->
 
    <style>
-      h3 { color: White; letter-spacing: 0.05em; }
+      mark { background-color: transparent; }
+      h3 mark { color: White; letter-spacing: 0.05em; }
+      pre mark { color: LightGreen; }
+      /*pre:not(code) { font-family: Courier New, monospace; }*/
 
-      /*ul { list-style: none; }
-      li::before { margin: 0 0.5em 0 0; padding: 0; content: '■'; }*/
+      /*ul { padding-left: 0; list-style: none; }
+      li::before { color: Khaki; margin: 0 0.5em 0 0; padding: 0; content: '■'; }*/
 
       /*ol { padding-left: 0; counter-reset: count; list-style: none; }
       ol li { counter-increment: count; }
@@ -39,13 +42,11 @@
       }*/
 
       li span, h3 span { 
-         padding: 0.1em 0.35em; border-radius: 1em; background-color: Silver; color: Black; 
+         padding: 0.1em 0.35em; border-radius: 1em; background-color: Khaki; color: Black; 
          font-size: 0.7rem; font-weight: bold; font-family: Courier New, monospace; 
          vertical-align: top;
          /*display: none;*/
       }
-
-      pre mark { color: LightGreen; background-color: transparent; }
    </style>
 <? $style = ob_get_clean(); ?>
 <? ob_start(); ?> 
@@ -71,15 +72,14 @@
    <h2>How</h2>
 
    <section>
-      <h3>info.php <span>A</span></h3>
+      <h3><mark>info.php <span>A</span></mark></h3>
       <p>
          I like to spread my content over different files, making it much nicer to work on. Here's an example of a section:
       </p>
 
-      <pre>
-&lt;? ob_start(); ?&gt; 
+<pre><code>&lt;? ob_start(); ?&gt; 
    <mark>&lt;p&gt;A bit of PHP to help me create...&lt;/p&gt;</mark>
-&lt;? $body = ob_get_clean(); ?&gt;</pre>
+&lt;? $body = ob_get_clean(); ?&gt;</code></pre>
 
       <small>
          Each file contains all HTML, CSS, and JavaScript for one section. External stylesheet and -script links are also declared here. Including them is managed by PiHPe.
@@ -87,35 +87,33 @@
    </section>
 
    <section>
-      <h3>header.php</h3>
+      <h3><mark>header.php</mark></h3>
       <p>
          And here's another one, easy to reuse on multiple pages!
       </p>
 
-      <pre>
-&lt;? ob_start(); ?&gt; 
+<pre><code>&lt;? ob_start(); ?&gt; 
    <mark>&lt;style&gt;
       h1 { line-height: 100vh; }
    &lt;/style&gt;</mark>
 &lt;? $style = ob_get_clean(); ?&gt;
 &lt;? ob_start(); ?&gt; 
    <mark>&lt;h1&gt;PiHPe&lt;/h1&gt;</mark>
-&lt;? $body = ob_get_clean(); ?&gt;</pre>
+&lt;? $body = ob_get_clean(); ?&gt;</code></pre>
    </section>
 
    <section>
-      <h3>/[pihpe]/paths.php <span>B</span></h3>
+      <h3><mark>[pihpe]/paths.php <span>B</span></mark></h3>
       <p>
          In <kbd>paths.php</kbd>, I map resources and paths to unique names:
       </p>
-      <pre>
-$paths = [
+
+<pre><code>$paths = [
    <mark>'info'    =&gt; '/info.php',
    'header'  =&gt; '/_php/header.php',
    'layout'  =&gt; '/_php/layout.php',
    'favicon' =&gt; '/_images/favicon.png'</mark>
-];</pre>
-      </p>
+];</code></pre>
       
       <small>
          'How to choose a good resource name' could be a perfect name for a section. These paths can now be included anywhere using:
@@ -126,28 +124,26 @@ $paths = [
    </section>
 
    <section>
-      <h3>index.php</h3>
+      <h3><mark>index.php</mark></h3>
       <p>
          Creating pages is a matter of choosing which sections to use in what order, and the layout to use for rendering:
       </p>
       
-      <pre>
-parse([
+<pre><code>parse([
    <mark>'header',
    'info'</mark>
 ]);
 
-include($root . <mark>url('layout')</mark>);</pre>
+include($root . <mark>url('layout')</mark>);</code></pre>
    </section>
 
    <section>
-      <h3>layout.php</h3>
+      <h3><mark>layout.php</mark></h3>
       <p>
          Design flexibility was one reason for creating PiHPe. I like to create layouts, and piece together my pages.
       </p>
 
-      <pre>
-   &lt;style&gt;
+<pre><code>   &lt;style&gt;
       <mark>h1 { color: LightGreen; }</mark>
    &lt;/style&gt;
    &lt;? insert($style); ?&gt;
@@ -155,23 +151,63 @@ include($root . <mark>url('layout')</mark>);</pre>
 &lt;body&gt;
 <mark>&lt;main&gt;</mark>
    &lt;? insert($body); ?&gt;
-<mark>&lt;/main&gt;</mark></pre>
+<mark>&lt;/main&gt;</mark></code></pre>
    </section>
 
    <section>
-      <h3>/[pihpe]/build.php <span>C</span></h3>
+      <h3><mark>[pihpe]/build.php <span>C</span></mark></h3>
       <p>
-         For GitHub I also needed a added static build facility. A visit to <a href="/[pihpe]/build.php">/[pihpe]/build.php</a> will save HTML for those files specified:
+         For GitHub I also needed a static build facility. A visit to <a href="/[pihpe]/build.php">build.php</a> will save HTML for those files specified:
       </p>
 
-      <pre>
-build([
+<pre><code>build([
    <mark>'/index.php'</mark>
-]);</pre>
+]);</code></pre>
 
       <small>
          <i>A pattern-based copy to isolate static files is already on my todo list ;-)</i>
       </small>
+   </section>
+
+   <hr>
+
+   <h2>More</h2>
+
+   <section>
+      <h3>Files</h3>
+      <p>
+         PiHPe uses a bit of a system with files and folders:
+      </p>
+      
+<pre>[pihpe]
+   examples
+      index.php    <mark>Copy these when creating new files.</mark>
+      layout.php
+      section.php
+   output          <mark>Build output is saved in here.</mark>
+      build.php
+      paths.php
+      pihpe.php</pre>
+   </section>
+
+   <section>
+      <h3>Usage</h3>
+      <p>
+         I like to use this approach for websites:
+      </p>
+
+<pre>[pihpe]
+_css            <mark>For generic stuff. Underscores help with sorting.</mark>
+_images
+   favicon.png
+_js
+_php
+   header.php
+   layout.php
+about           <mark>Lowercase folder names map to nice URLs.</mark>
+   index.php    <mark>And so does index.php for page files.</mark>
+index.php
+info.php</pre>
    </section>
 
    <hr>

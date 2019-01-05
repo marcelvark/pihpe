@@ -33,7 +33,7 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       
       body { background-color: #444; }
-      h1, h2, h3 { color: LightGreen; }
+      h1, h2, h3 { color: Khaki; }
       p, li, pre, small { color: Silver; }
       a { color: SkyBlue; }
       kbd { color: White; }
@@ -41,7 +41,7 @@
 
       *:focus { outline: 0.12rem dashed SkyBlue; outline-offset: 0.1rem; }
       ::-moz-selection { background: Khaki; color: Black; }
-      ::selection { background: Khaki; color: Black; }
+      ::selection { background: rgba(240, 230, 140, 0.99); color: Black; }
 
       html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
       h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
@@ -50,10 +50,8 @@
       h2 { font-size: 2rem; }
       h3 { font-size: 1rem; }
       p a, p kbd { font-size: 89%; }
-      p, li { line-height: 160%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
+      p, li { line-height: 140%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
       pre, code { font-size: 0.6rem; font-family: Mono, monospace; }
-      /*pre, code { font-size: 0.6rem; letter-spacing: 0.025em; font-family: Courier New, monospace; }*/
-      /*pre { line-height: 130%; }*/
       small { font-size: 0.8rem; letter-spacing: 0.045em; }
 
       h1, h2 { width: 100%; }
