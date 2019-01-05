@@ -178,16 +178,16 @@ include($root . <mark>url('layout')</mark>);</code></pre>
       <p>
          PiHPe uses a bit of a system with files and folders:
       </p>
-      
+
 <pre>[pihpe]
    examples
       index.php    <mark>Copy these when creating new files.</mark>
       layout.php
       section.php
    output          <mark>Build output is saved in here.</mark>
-      build.php
-      paths.php
-      pihpe.php</pre>
+   build.php
+   paths.php
+   pihpe.php</pre>
    </section>
 
    <section>
