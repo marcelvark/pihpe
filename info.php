@@ -1,16 +1,16 @@
 <?
-   /*
+   /* -------------------------------------------------------------------------
       Use this to define a content section for your website. This includes all
       <style>, HTML, and <script> needed to render it, as well as any links for
       external CSS and JavaScript.
 
-      Note that blocks (<? ob_start()...ob_get_clean(); ?>) are optional.
+      Note that blocks (<? ob_start()...ob_get_clean(); ?>) are fully optional.
    */
 
    $root = $_SERVER['DOCUMENT_ROOT'];
    require_once($root . '/[pihpe]/pihpe.php');
 
-   /*
+   /* ------------------------------------------------------------------------
       Add links to external CSS and JavaScript here as needed.
       Note that these links best use URNs defined in /[pihpe]/paths.php.
    */
@@ -26,20 +26,6 @@
       mark { background-color: transparent; }
       h3 mark { color: White; letter-spacing: 0.05em; }
       pre mark { color: LightGreen; }
-      /*pre:not(code) { font-family: Courier New, monospace; }*/
-
-      /*ul { padding-left: 0; list-style: none; }
-      li::before { color: Khaki; margin: 0 0.5em 0 0; padding: 0; content: '■'; }*/
-
-      /*ol { padding-left: 0; counter-reset: count; list-style: none; }
-      ol li { counter-increment: count; }
-      ol li::before { 
-         content: counter(count) ''; 
-         padding: 0.1em 0.4em; margin-right: 1em; border-radius: 1em;
-         background-color: LightGreen; color: Black; 
-         font-size: 80%; font-weight: bold; font-family: Courier New, monospace; 
-         vertical-align: bottom;
-      }*/
 
       li span, h3 span { 
          padding: 0.1em 0.35em; border-radius: 1em; background-color: Khaki; color: Black; 
@@ -126,7 +112,7 @@
    <section>
       <h3><mark>index.php</mark></h3>
       <p>
-         Creating pages is a matter of choosing which sections to use in what order, and the layout to use for rendering:
+         Creating a page is a matter of choosing which sections to include, their order, and the layout to use for rendering:
       </p>
       
 <pre><code>parse([

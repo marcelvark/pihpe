@@ -3,7 +3,7 @@
 
       PiHPe
 
-      A bit of PHP to help build dynamic or static websites.
+      A bit of PHP to help build simple dynamic/static websites.
    */
 
 
@@ -28,7 +28,7 @@
 
    /* -------------------------------------------------------------------------
       Parses a PHP file, containing a content section.
-      (use in your pages - see /[pihpe]/_index.php)
+      (use in your pages - see /[pihpe]/examples/index.php)
    */
 
    // These global arrays collect page-specific sections,
@@ -50,7 +50,7 @@
 
    /* -------------------------------------------------------------------------
       Inserts HTML, CSS, JavaScript, or a link to externals into a page layout.
-      (use in your page layouts - see /[pihpe]/_layout.php)
+      (use in your page layouts - see /[pihpe]/examples/layout.php)
    */
 
    function insert($array){
@@ -82,7 +82,7 @@
 
    /* -------------------------------------------------------------------------
       Keeps track of links of external CSS and JavaSCript for a page.
-      (use in your content sections - see /[pihpe]/_section.php)
+      (use in your content sections - see /[pihpe]/examples/section.php)
    */
 
    function links($names){

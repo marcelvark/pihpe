@@ -2,7 +2,7 @@
    $root = $_SERVER['DOCUMENT_ROOT'];
    require_once($root . '/[pihpe]/pihpe.php');
    
-   /*
+   /* -------------------------------------------------------------------------
       Add page sections here, in order of appearance.
    */
 
@@ -11,6 +11,9 @@
       'info'
    ]);
 
-   // Renders the page
+   /* -------------------------------------------------------------------------
+      Choose a layout for rendering.
+   */
+
    include($root . url('layout'));
 ?>

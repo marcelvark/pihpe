@@ -1,5 +1,5 @@
 <?
-   /*
+   /* -------------------------------------------------------------------------
       Use this to define a content section for your website. This includes all
       <style>, HTML, and <script> needed to render it, as well as any links for
       external CSS and JavaScript.
@@ -10,7 +10,7 @@
    $root = $_SERVER['DOCUMENT_ROOT'];
    require_once($root . '/[pihpe]/pihpe.php');
 
-   /*
+   /* ------------------------------------------------------------------------
       Add links to external CSS and JavaScript here as needed.
       Note that these links best use URNs defined in /[pihpe]/paths.php.
    */
@@ -36,6 +36,6 @@
 
    <header>
       <h1><a href="https://github.com/marcelvark/pihpe">PiHPe</a></h1>
-      <footer>Marcel Varkevisser | <a href="https://nl.linkedin.com/in/marcel-varkevisser">LinkedIn</a> | <a href="https://marcelvark.github.io">GitHub</a></footer>
+      <footer>Marcel Varkevisser | <a href="https://marcelvark.github.io">GitHub</a></footer>
    </header>
 <? $body = ob_get_clean(); ?>

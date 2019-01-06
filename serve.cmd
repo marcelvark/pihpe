@@ -1,7 +1,6 @@
 @echo off
 
 rem   This is just to make my life easier. It starts PHP and opens the browser.
-rem   -------------------------------------------------------------------------
 
 rem   I recommend you put this file in a higher folder, and use:
 rem   cd "website"

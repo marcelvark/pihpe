@@ -1,12 +1,10 @@
 # PiHPe
 
-A bit of PHP to help create simple websites. It's handy if you love to use HTML and CSS, and learn some PHP. Any provider could host your work, but you can also publish a static version on GitHub first. 
+Love to play with HTML and CSS, and learn some PHP? PiHPe can help you build simple websites. Here's an [example](https://marcelvark.github.io/) that explains what it does, and how to use it. All files used are in the repository.
 
-Here's such [example](https://marcelvark.github.io/) made with PiHPe. It explains what it does, and how to use it. All files used in the build are in the repository.
+You'll need to install PHP from [php.net](http://php.net). And you may want to edit `serve.cmd` to start it. But then you're ready to go.
 
-You'll need to install PHP from [php.net](http://php.net). And you may want to edit `serve.cmd` to start your version of PHP. But then you're ready to go.
-
-I've still got these features planned for PiHPe:
+Some additional features are planned for PiHPe:
 - improving the build mechanism
 - creating a simple template facility
 - adding file-relative linking

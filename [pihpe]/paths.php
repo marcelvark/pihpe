@@ -1,5 +1,5 @@
 <?
-   /*
+   /* -------------------------------------------------------------------------
       Associate resource URLs with a unique name (URN) here.
    */
 
@@ -14,8 +14,9 @@
 
       /* ----------------------------------------------------------------------
          PiHPe uses root-relative URLs, but absolute URLs can also be used.
-         (see the <base> tag in /[pihpe]/_layout.php)
+         (see the <base> tag in /[pihpe]/examples/layout.php)
       */
+         
       'base' => '',
    ];
 ?>

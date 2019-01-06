@@ -8,11 +8,9 @@
 <html lang="en">
 
 <head>
-   <!--
-      Add your own boilerplate markup here.
-   -->
-
    <base href="<?= url('base'); ?>">
+
+   <!-- ADD YOUR OWN BOILERPLATE MARKUP HERE --------------------------------->
 
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
