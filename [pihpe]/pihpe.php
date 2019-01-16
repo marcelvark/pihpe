@@ -4,6 +4,7 @@
       PiHPe
 
       A bit of PHP to help build simple dynamic/static websites.
+      
    */
 
 
@@ -111,19 +112,116 @@
    */
 
    function build($files){
+      global $root;
+
       foreach($files as $input){
+         path($input);
+
          // Parse the PHP file
          ob_start();
-         include($_SERVER['DOCUMENT_ROOT'] . $input);
+         require($_SERVER['DOCUMENT_ROOT'] . $input);
          $html = ob_get_clean();
 
          // Save the HTML output
          $path = str_replace('php', 'html', $input);
-         echo $path;
-
          $output = fopen($_SERVER['DOCUMENT_ROOT'] . $path, 'w');
          fwrite($output, $html);
          fclose($output);
       }
+   }
+
+
+   /* -------------------------------------------------------------------------
+      Returns a full properly formatted path. Note that the given root-relative
+      path is also formatted.
+   */
+
+   function path(&$folder){
+      $folder = str_replace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $folder);
+      $folder = DIRECTORY_SEPARATOR . trim($folder, DIRECTORY_SEPARATOR);
+      return $_SERVER['DOCUMENT_ROOT'] . $folder;
+   }
+
+
+   /* -------------------------------------------------------------------------
+      Recursively iterates over all items in a folder. The callback is provided 
+      the name of the file or folder. Paths are relative to the document root.
+   */
+
+   function iterate($folder, $callback){
+      // Sanitize the folder
+      $path = path($folder);
+
+      // Iterate over files
+      if (file_exists($path)){
+         $dir = opendir($path);
+         while($item = readdir($dir)){
+            if ($item[0] != '.'){
+               if (is_dir($path . DIRECTORY_SEPARATOR . $item)){
+                  iterate($folder . DIRECTORY_SEPARATOR . $item, $callback);
+               }
+               else {
+                  // Pass a file to the callback
+                  $callback($folder . DIRECTORY_SEPARATOR . $item);
+               }
+            }
+         }
+
+         closedir($dir);
+
+         // Pass the folder to the callback
+         $callback($folder);
+      }
+   }
+
+
+   /* -------------------------------------------------------------------------
+      Recursively copies files from a source- to target folder. All but hidden-
+      and system files and folders are copied.
+   */
+
+   function xcopy($source, $target){
+      path($target);
+
+      iterate($source, function($item) use ($target){
+         global $root;
+
+         // Skip directories
+         if (is_dir($root . $item)) return;
+
+         // Return if the file was found inside the $target dir
+         if (substr($item, 0, strlen($target)) === $target) return;
+
+         // Make sure the target directory exists
+         $dir = dirname($root . $target . $item);
+         if (!is_dir($dir)) mkdir($dir, 0700, true);
+
+         // Copy the file
+         copy($root . $item, $root . $target . $item);
+      });
+   }
+
+
+   /* -------------------------------------------------------------------------
+      Recursively deletes all items from a folder.
+   */
+
+   function xrmdir($folder){
+      path($folder);
+
+      iterate($folder, function($item){
+         global $root;
+
+         // Return if the file was found inside the $target dir
+         if (substr($item, 0, strlen($target)) === $target) return;
+
+         // Remove the item
+         if (is_dir($root . $item)){
+            rmdir($root . $item);
+         }
+         else {
+            unlink($root . $item);
+         }
+      });
    }
 ?>

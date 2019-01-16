@@ -25,13 +25,12 @@
    <style>
       mark { background-color: transparent; }
       h3 mark { color: White; letter-spacing: 0.05em; }
-      pre mark { color: LightGreen; }
+      pre mark, li mark { color: LightGreen; }
 
       li span, h3 span { 
-         padding: 0.1em 0.35em; border-radius: 1em; background-color: Khaki; color: Black; 
+         padding: 0.1em 0.35em; border-radius: 1em; background-color: DarkGray; color: Black; 
          font-size: 0.7rem; font-weight: bold; font-family: Courier New, monospace; 
          vertical-align: top;
-         /*display: none;*/
       }
    </style>
 <? $style = ob_get_clean(); ?>
@@ -143,16 +142,19 @@ include($root . <mark>url('layout')</mark>);</code></pre>
    <section>
       <h3><mark>[pihpe]/build.php <span>C</span></mark></h3>
       <p>
-         For GitHub I also needed a static build facility. A visit to <a href="/[pihpe]/build.php">build.php</a> will save HTML for those files specified:
+         For GitHub I needed a static build facility. A simple visit to <a href="/[pihpe]/build.php">build.php</a> does a lot, for a little configuration.
       </p>
 
-<pre><code>build([
-   <mark>'/index.php'</mark>
-]);</code></pre>
-
-      <small>
-         <i>A pattern-based copy to isolate static files is already on my todo list ;-)</i>
-      </small>
+      <small><ol>
+         <li>Delete any previous output</li>
+         <li>Copy all files to the output</li>
+         <li>Build all index.php files</li>
+         <li><mark>Build additional PHP files</mark></li>
+         <li>Delete all PHP files</li>
+         <li><mark>Delete additional files</mark></li>
+         <li><mark>Copy additional files</mark></li>
+         <li>Delete empty folders</li>
+      </ol></small>
    </section>
 
    <hr>
@@ -203,9 +205,9 @@ info.php</pre>
    <section>
       <p>
          <ul>
-            <li>Improve the build mechanism.</li>
-            <li>Create a simple template facility.</li>
+            <li>A When section.</li>
             <li>Add file-relative linking.</li>
+            <li>Create a simple template facility.</li>
          </ul>
       </p>
    </section>

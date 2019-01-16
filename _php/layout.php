@@ -31,15 +31,15 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       
       body { background-color: #444; }
-      h1, h2, h3 { color: Khaki; }
+      h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
       a { color: SkyBlue; }
       kbd { color: White; }
       hr { background-image: linear-gradient(to right, #fff3, transparent); }
 
       *:focus { outline: 0.12rem dashed SkyBlue; outline-offset: 0.1rem; }
-      ::-moz-selection { background: Khaki; color: #444; }
-      ::selection { background: rgba(240, 230, 140, 0.99); color: #444; }
+      ::-moz-selection { background: LightGreen; color: Black; }
+      ::selection { background: rgba(144, 238, 144, 0.99); color: Black; }
 
       html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
       h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
