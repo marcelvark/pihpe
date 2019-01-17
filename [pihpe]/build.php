@@ -23,7 +23,7 @@
       '/[pihpe]',
       '/LICENSE',
       '/README.md',
-      '/serve.cmd',
+      '/serve.cmd'
    ];
 
 
@@ -36,6 +36,7 @@
 
    $copy = [
       '/.nojekyll',
+      '/[pihpe]/build.html'
    ];
 
 
@@ -136,6 +137,9 @@
 <pre><?
    foreach ($copy as $file){
       xecho($file);
+      
+      $dir = dirname($root . $output . $file);
+      if (!is_dir($dir)) mkdir($dir, 0700, true);
       copy($root . $file, $root . $output . $file);
    }
 ?></pre>
