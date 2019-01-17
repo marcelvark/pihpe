@@ -142,7 +142,7 @@ include($root . <mark>url('layout')</mark>);</code></pre>
    <section>
       <h3><mark>[pihpe]/build.php <span>C</span></mark></h3>
       <p>
-         For GitHub I needed a static build facility. A simple visit to <a href="/[pihpe]/build.php">build.php</a> does a lot, for a little configuration.
+         For GitHub I needed a static build facility. A simple visit to <a href="/[pihpe]/build.php">build.php</a> does a lot, for little to no configuration.
       </p>
 
       <small><ol>
@@ -192,8 +192,8 @@ _js
 _php
    header.php
    layout.php
-about           <mark>Lowercase folder names map to nice URLs.</mark>
-   index.php    <mark>And so does index.php for page files.</mark>
+about           <mark>Lowercase folders will map to nice URLs, and help to</mark>
+   index.php    <mark>organize content. An index.php is built automatically.</mark>
 index.php
 info.php</pre>
    </section>
@@ -212,3 +212,15 @@ info.php</pre>
       </p>
    </section>
 <? $body = ob_get_clean(); ?>
+<? ob_start(); ?> 
+   <!-- Info ----------------------------------------------------------------->
+
+   <script>
+      window.onload = function(){
+         if (location.pathname.endsWith('.html')){
+            window.querySelector('a[href="/[pihpe]/build.php"]')
+               .setAttribute('href', '/[pihpe]/build.html');
+         }
+      }
+   </script>
+<? $script = ob_get_clean(); ?>
