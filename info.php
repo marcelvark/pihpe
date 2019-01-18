@@ -218,7 +218,7 @@ info.php</pre>
    <script>
       window.addEventListener('load', function(event){
          if (PiHPe.static){
-            window.querySelector('a[href="/[pihpe]/build.php"]').href = '/[pihpe]/build.html';
+            document.querySelector('a[href="/[pihpe]/build.php"]').href = '/[pihpe]/build.html';
          }
       })
    </script>
