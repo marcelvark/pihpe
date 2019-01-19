@@ -10,7 +10,7 @@
       'favicon'    => '/_images/favicon.png',
       'apple-icon' => '/_images/apple-touch-icon.png',
       'monospace'  => '/_fonts/sourcecodepro-regular-webfont.woff2',
-      'example'    => '/_js/dummy.js',
+      'pihpe'      => '/_js/pihpe.js',
 
       /* ----------------------------------------------------------------------
          PiHPe uses root-relative URLs, but absolute URLs can also be used.

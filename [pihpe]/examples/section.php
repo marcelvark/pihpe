@@ -16,7 +16,7 @@
    */
 
    links([
-      'example'
+      'pihpe'
    ]);
 ?>
 <? ob_start(); ?> 

@@ -34,7 +34,7 @@
       h1, h2, h3 { color: LightGreen; }
       p, li, pre, small { color: Silver; }
       a { color: SkyBlue; }
-      kbd { color: White; }
+      kbd { color: WhiteSmoke; }
       hr { background-image: linear-gradient(to right, #fff3, transparent); }
 
       *:focus { outline: 0.12rem dashed SkyBlue; outline-offset: 0.1rem; }

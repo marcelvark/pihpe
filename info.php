@@ -12,11 +12,11 @@
 
    /* ------------------------------------------------------------------------
       Add links to external CSS and JavaScript here as needed.
-      Note that these links best use URNs defined in /[pihpe]/paths.php.
+      Note that these links best use names defined in /[pihpe]/paths.php.
    */
 
    links([
-      'example'
+      'pihpe'
    ]);
 ?>
 <? ob_start(); ?> 
@@ -24,7 +24,7 @@
 
    <style>
       mark { background-color: transparent; }
-      h3 mark { color: White; letter-spacing: 0.05em; }
+      h3 mark { color: WhiteSmoke; letter-spacing: 0.05em; }
       pre mark, li mark { color: LightGreen; }
 
       li span, h3 span { 
@@ -52,6 +52,14 @@
       </p>
    </section>
 
+<!--    <section>
+      <h3>Tesla</h3>
+      <p>
+         Nikola Tesla (Servisch: Никола Тесла) (Smiljan, 10 juli 1856 – New York, 7 januari 1943) was een Servisch-Amerikaanse uitvinder, elektrotechnicus en natuurkundige. Hij wordt gezien als een van de grootste ingenieurs en uitvinders aller tijden.<br>
+         Naar Tesla is in 1960 de eenheid van magnetische fluxdichtheid vernoemd, de tesla (symbool T).
+      </p>
+   </section>
+ -->
    <hr>
 
    <h2>How</h2>
