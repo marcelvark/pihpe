@@ -8,6 +8,8 @@
 <html lang="en">
 
 <head>
+   <base href="<?= $config['base'] ?>">
+   
    <!-- ADD YOUR OWN BOILERPLATE MARKUP HERE --------------------------------->
 
    <meta charset="utf-8">

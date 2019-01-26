@@ -16,6 +16,14 @@
          TIP: use the first setting, unless you know what you're doing.
       */
       'urls' => 'file-relative',
+
+
+      /*
+         A base URL that may be inserted into pages. Note that this will have
+         an effect on the link format used.
+         (see [pihpe]/exmaples/layout.php)
+      */
+      'base' => ''
    ];
 ?>
 
