@@ -15,5 +15,5 @@
       Choose a layout for rendering.
    */
 
-   include($root . url('layout'));
+   include(path('layout'));
 ?>

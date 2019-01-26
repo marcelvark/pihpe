@@ -6,6 +6,7 @@
    $paths = [
       'header'     => '/_php/header.php',
       'info'       => '/info.php',
+      'build'      => '/[pihpe]/build.php',
       'layout'     => '/_php/layout.php',
       'favicon'    => '/_images/favicon.png',
       'apple-icon' => '/_images/apple-touch-icon.png',

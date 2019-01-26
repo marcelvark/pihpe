@@ -52,14 +52,6 @@
       </p>
    </section>
 
-<!--    <section>
-      <h3>Tesla</h3>
-      <p>
-         Nikola Tesla (Servisch: Никола Тесла) (Smiljan, 10 juli 1856 – New York, 7 januari 1943) was een Servisch-Amerikaanse uitvinder, elektrotechnicus en natuurkundige. Hij wordt gezien als een van de grootste ingenieurs en uitvinders aller tijden.<br>
-         Naar Tesla is in 1960 de eenheid van magnetische fluxdichtheid vernoemd, de tesla (symbool T).
-      </p>
-   </section>
- -->
    <hr>
 
    <h2>How</h2>
@@ -109,7 +101,7 @@
 ];</code></pre>
       
       <small>
-         'How to choose a good resource name' could be a perfect name for a section. These paths can now be included anywhere using:
+         'How to choose a good resource name' could be a perfect name for a section. These URLs can now be included anywhere using:
       </small>
 
       <pre>
@@ -127,7 +119,7 @@
    'info'</mark>
 ]);
 
-include($root . <mark>url('layout')</mark>);</code></pre>
+include(path(<mark>'layout'</mark>));</code></pre>
    </section>
 
    <section>
@@ -150,7 +142,7 @@ include($root . <mark>url('layout')</mark>);</code></pre>
    <section>
       <h3><mark>[pihpe]/build.php <span>C</span></mark></h3>
       <p>
-         For GitHub I needed a static build facility. A simple visit to <a href="/[pihpe]/build.php">build.php</a> does a lot, for little to no configuration.
+         For GitHub I needed a static build facility. A simple visit to <a href="<?= url('build'); ?>">build.php</a> does a lot, for little to no configuration.
       </p>
 
       <small><ol>

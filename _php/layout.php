@@ -41,7 +41,7 @@
       ::-moz-selection { background: LightGreen; color: #444; }
       ::selection { background: rgba(144, 238, 144, 0.99); color: #444; }
 
-      html { font-size: calc(1rem + 0.3vw); font-family: Sans; }
+      html { font-size: calc(1rem + 0.3vw); }
       h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
       h1, h2, h3 { font-weight: normal; }
       h1 { font-size: 3rem; }

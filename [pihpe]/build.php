@@ -46,7 +46,10 @@
 ?>
 
 
-<p><b><span style="font-family: sans-serif">PiHPe</span> - Edit <kbd>/[pihpe]/build.php</kbd> to configure the build process.</b></p>
+<p>
+   <b><span style="font-family: sans-serif">PiHPe</span></b><br>
+   Edit <kbd>/[pihpe]/build.php</kbd> to configure the build process.
+</p>
 
 <pre><?
    $root = $_SERVER['DOCUMENT_ROOT'];
@@ -55,7 +58,7 @@
    $output = '/[pihpe]/output/';
 
    function xecho($path){
-      path($path);
+      full($path);
       echo $path . PHP_EOL;
    }
 ?></pre>

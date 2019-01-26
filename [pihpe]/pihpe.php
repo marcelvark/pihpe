@@ -7,6 +7,8 @@
       
    */
 
+   $config = require_once($_SERVER['DOCUMENT_ROOT'] . '/[pihpe]/config.php');
+
 
    /* -------------------------------------------------------------------------
       Returns a URL for a resource (URN).
@@ -16,15 +18,53 @@
    require_once($_SERVER['DOCUMENT_ROOT'] . '/[pihpe]/paths.php');
 
    function url($name){
-      // Use paths relative to the site root:
-      return $GLOBALS['paths'][$name];
+   	global $config;
 
-      /* 
-      // or use absolute paths (perhaps for later?):
-      $host = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-      return $host . $GLOBALS['paths'][$name];
-      */
+   	if ($config['urls'] == 'file-relative'){
+   		$source = debug_backtrace()[0]['file'];
+   		$target = full($GLOBALS['paths'][$name]);
+   		return map($source, $target);
+   	}
+
+   	else if ($config['urls'] == 'root-relative'){
+      	return $GLOBALS['paths'][$name];
+      }
+
+      else if ($config['urls'] == 'absolute'){
+      	$host = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+      	return $host . $GLOBALS['paths'][$name];
+      }
+
+      else {
+      	throw new Exception('Invalid setting for \'urls\' in /[pihpe]/$config.php');
+      }
    }
+
+
+   /* -------------------------------------------------------------------------
+      Returns a full path for a resource (URN).
+   */
+   function path($name){
+   	return full($GLOBALS['paths'][$name]);
+   }
+
+
+   /* -------------------------------------------------------------------------
+      Returns a filet-relative path between two paths.
+   */
+	function map($source, $target){
+		$source = str_replace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $source);
+		$target = str_replace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $target);
+
+		$sparts = explode(DIRECTORY_SEPARATOR, rtrim($source, DIRECTORY_SEPARATOR));
+		$tparts = explode(DIRECTORY_SEPARATOR, rtrim($target, DIRECTORY_SEPARATOR));
+
+		while (count($sparts) && count($tparts) && ($sparts[0] == $tparts[0])){
+			array_shift($sparts);
+			array_shift($tparts);
+		}
+		return str_pad("", count($sparts) * 3, '../') . implode('/', $tparts);
+	}
 
 
    /* -------------------------------------------------------------------------
@@ -40,7 +80,7 @@
 
    function parse($sections){
       foreach($sections as $name){
-         include($_SERVER['DOCUMENT_ROOT'] . $GLOBALS['paths'][$name]);
+         include(path($name));
 
          $GLOBALS['style'][] = $style;
          $GLOBALS['body'][] = $body;
@@ -115,7 +155,7 @@
       global $root;
 
       foreach($files as $input){
-         path($input);
+         full($input);
 
          // Parse the PHP file
          ob_start();
@@ -136,10 +176,10 @@
       path is also formatted.
    */
 
-   function path(&$folder){
-      $folder = str_replace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $folder);
-      $folder = DIRECTORY_SEPARATOR . trim($folder, DIRECTORY_SEPARATOR);
-      return $_SERVER['DOCUMENT_ROOT'] . $folder;
+   function full(&$path){
+      $path = str_replace(['/', '//', '\\', '\\\\'], DIRECTORY_SEPARATOR, $path);
+      $path = DIRECTORY_SEPARATOR . trim($path, DIRECTORY_SEPARATOR);
+      return $_SERVER['DOCUMENT_ROOT'] . $path;
    }
 
 
@@ -150,7 +190,7 @@
 
    function iterate($folder, $callback){
       // Sanitize the folder
-      $path = path($folder);
+      $path = full($folder);
 
       // Iterate over files
       if (file_exists($path)){
@@ -181,7 +221,7 @@
    */
 
    function xcopy($source, $target){
-      path($target);
+      full($target);
 
       iterate($source, function($item) use ($target){
          global $root;
@@ -207,7 +247,7 @@
    */
 
    function xrmdir($folder){
-      path($folder);
+      full($folder);
 
       iterate($folder, function($item){
          global $root;
