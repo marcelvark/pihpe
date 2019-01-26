@@ -218,7 +218,8 @@ info.php</pre>
    <script>
       window.addEventListener('load', function(event){
          if (PiHPe.static){
-            document.querySelector('a[href="/[pihpe]/build.php"]').href = '/[pihpe]/build.html';
+            const link = document.querySelector('a[href$="build.php"]');
+            link.href = link.href.replace('build.php', 'build.html');
          }
       })
    </script>

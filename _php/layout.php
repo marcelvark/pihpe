@@ -8,8 +8,6 @@
 <html lang="en">
 
 <head>
-   <base href="<?= url('base'); ?>">
-
    <!-- ADD YOUR OWN BOILERPLATE MARKUP HERE --------------------------------->
 
    <meta charset="utf-8">
