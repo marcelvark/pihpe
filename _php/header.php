@@ -24,7 +24,7 @@
 
    <style>
       header { min-height: 100vh; }
-      h1 { line-height: 100vh; text-align: middle; font-size: 6rem; margin: 0; }
+      h1 { line-height: 100vh; text-align: middle; font-size: 5.5rem; margin: 0; }
       h1 a { padding: 0; color: inherit; }
       h1 a:hover { border: none; }
       footer { color: Gray; font-size: 0.8rem; letter-spacing: 0.025em; font-family: Arial, sans-serif; }

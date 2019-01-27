@@ -29,6 +29,8 @@
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      pre, code, kbd, samp, tt { font-family: monospace,monospace; font-size: 0.8em; }
       
       body { background-color: #444; }
       h1, h2, h3 { color: LightGreen; }
@@ -42,14 +44,16 @@
       ::selection { background: rgba(144, 238, 144, 0.99); color: #444; }
 
       html { font-size: calc(1rem + 0.3vw); }
+      /*html { font-size: 20px; }*/
       h1, h2, h3, a, kbd { letter-spacing: 0.025em; font-family: Arial, sans-serif; }
       h1, h2, h3 { font-weight: normal; }
       h1 { font-size: 3rem; }
       h2 { font-size: 2rem; }
       h3 { font-size: 1rem; }
       p a, p kbd { font-size: 89%; }
-      p, li { line-height: 140%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
-      pre, code { font-size: 0.6rem; font-family: Mono, monospace; }
+      p, li, small { line-height: 140%; letter-spacing: 0.036em; font-family: Times New Roman, serif; }
+      pre, code { font-size: 0.64rem; font-family: Mono, monospace, monospace; }
+      /* use font-size: 0.6rem for 80 character widths (0.64 allows for 75) */
       small { font-size: 0.8rem; letter-spacing: 0.045em; }
 
       h1, h2 { width: 100%; }

@@ -46,6 +46,10 @@
 ?>
 
 
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
 <p>
    <b><span style="font-family: sans-serif">PiHPe</span></b><br>
    Edit <kbd>/[pihpe]/build.php</kbd> to configure the build process.

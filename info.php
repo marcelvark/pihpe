@@ -28,7 +28,8 @@
       pre mark, li mark { color: LightGreen; }
 
       li span, h3 span { 
-         padding: 0.1em 0.35em; border-radius: 1em; background-color: DarkGray; color: Black; 
+         padding: 0.1em 0.35em; 
+         border: 0.1rem solid DarkGray; color: DarkGray; border-radius: 1em;
          font-size: 0.7rem; font-weight: bold; font-family: Courier New, monospace; 
          vertical-align: top;
       }
@@ -62,7 +63,7 @@
          I like to spread my content over different files, making it much nicer to work on. Here's an example of a section:
       </p>
 
-<pre><code>&lt;? ob_start(); ?&gt; 
+<pre><code>&lt;? ob_start(); ?&gt;
    <mark>&lt;p&gt;A bit of PHP to help me create...&lt;/p&gt;</mark>
 &lt;? $body = ob_get_clean(); ?&gt;</code></pre>
 
