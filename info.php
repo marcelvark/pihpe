@@ -146,16 +146,18 @@ include(path(<mark>'layout'</mark>));</code></pre>
          For GitHub I needed a static build facility. A simple visit to <a href="<?= url('build'); ?>">build.php</a> does a lot, for little to no configuration.
       </p>
 
-      <small><ol>
-         <li>Delete any previous output</li>
-         <li>Copy all files to the output</li>
-         <li>Build all index.php files</li>
-         <li><mark>Build additional PHP files</mark></li>
-         <li>Delete all PHP files</li>
-         <li><mark>Delete additional files</mark></li>
-         <li><mark>Copy additional files</mark></li>
-         <li>Delete empty folders</li>
-      </ol></small>
+<pre>
+1. Delete any previous output
+2. Copy all files to the output
+3. Build all index.php files
+<mark>4. Build additional PHP files</mark>
+5. Delete all PHP files
+<mark>6. Delete additional files</mark>
+<mark>7. Copy additional files</mark>
+8. Delete empty folders
+</pre>
+
+      <small>Step 7 is to re-include any PHP files removed in step 5.</small>
    </section>
 
    <hr>
@@ -182,7 +184,7 @@ include(path(<mark>'layout'</mark>));</code></pre>
    <section>
       <h3>Usage</h3>
       <p>
-         I like to use this approach for websites:
+         And I like to use this approach for websites:
       </p>
 
 <pre>[pihpe]
@@ -197,20 +199,6 @@ about           <mark>Lowercase folders will map to nice URLs, and help to</mark
    index.php    <mark>organize content. Any index.php is built automatically.</mark>
 index.php
 info.php</pre>
-   </section>
-
-   <hr>
-
-   <h2>Next</h2>
-
-   <section>
-      <p>
-         <ul>
-            <li>A When section.</li>
-            <li>Add file-relative linking.</li>
-            <li>Create a simple template facility.</li>
-         </ul>
-      </p>
    </section>
 <? $body = ob_get_clean(); ?>
 <? ob_start(); ?> 
